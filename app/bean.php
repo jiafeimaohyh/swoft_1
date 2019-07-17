@@ -22,7 +22,7 @@ return [
     ],
     'httpServer'     => [
         'class'    => HttpServer::class,
-        'port'     => 18306,
+        'port'     => 9501,
         'listener' => [
             'rpc' => bean('rpcServer')
         ],
@@ -82,7 +82,7 @@ return [
     'user'           => [
         'class'   => ServiceClient::class,
         'host'    => '127.0.0.1',
-        'port'    => 18307,
+        'port'    => 9508,
         'setting' => [
             'timeout'         => 0.5,
             'connect_timeout' => 1.0,
@@ -97,6 +97,7 @@ return [
     ],
     'rpcServer'      => [
         'class' => ServiceServer::class,
+        'port'  => 9508,
     ],
     'wsServer'       => [
         'class'   => WebSocketServer::class,
