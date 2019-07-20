@@ -55,8 +55,7 @@ class RpcController
         $result2 = $this->userService2->getList(12, 'type');
 
         $result3 = $this->payService->pay();
-        //return [$result];
-        return [$result, $result2, $result3];
+        return [$result3,$result,$result2];
     }
 
     /**
