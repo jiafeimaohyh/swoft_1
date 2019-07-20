@@ -50,13 +50,13 @@ class RpcController
      */
     public function getList(): array
     {
-        var_dump(888);
-        exit;
+
         $result  = $this->userService->getList(12, 'type');
-        $result2 = $this->userService2->getList(12, 'type');
+        //$result2 = $this->userService2->getList(12, 'type');
 
         /*$result3 = $this->payService->pay();*/
-        return [$result,$result2];
+        return [$result];
+        //return [$result,$result2];
     }
 
     /**
