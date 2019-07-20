@@ -82,6 +82,7 @@ return [
     'user'           => [
         'class'   => App\Rpc\Client\Client::class,
         'host'    => '127.0.0.1',
+        'serviceName'=>'user',
         'port'    => 9508,
         'setting' => [
             'timeout'         => 0.5,
@@ -99,6 +100,7 @@ return [
     'pay'           => [
         'class'   => App\Rpc\Client\Client::class,
         'host'    => '127.0.0.1',
+        'serviceName'=>'pay',
         'port'    => 9508,
         'setting' => [
             'timeout'         => 0.5,
