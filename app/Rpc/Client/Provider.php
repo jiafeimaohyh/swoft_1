@@ -10,6 +10,7 @@ namespace App\Rpc\Client;
 
 
 use Swoft\Rpc\Client\Contract\ProviderInterface;
+use Swoft\Rpc\Client\Client;
 
 class Provider implements ProviderInterface
 {
@@ -19,7 +20,7 @@ class Provider implements ProviderInterface
          $this->serviceName=$serviceName;
      }
 
-    public  function  getList(): array
+    public  function  getList(Client $client): array
      {
 
           //var_dump($this->serviceName);
