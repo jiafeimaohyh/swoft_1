@@ -41,6 +41,7 @@ return [
         'middlewares' => [
             // Allow use @View tag
             \Swoft\View\Middleware\ViewMiddleware::class,
+            \App\Http\Middleware\SomeMiddleware::class,
         ],
     ],
     'db'             => [
