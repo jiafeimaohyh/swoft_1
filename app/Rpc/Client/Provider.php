@@ -28,5 +28,6 @@ class Provider implements ProviderInterface
           //负载均衡，缓存地址
           //根据服务名称consul当中获取动态地址
           //return ["127.0.0.1:9501","127.0.0.1:9501"];
+        return [];
      }
 }
