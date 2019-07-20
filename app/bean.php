@@ -99,8 +99,8 @@ return [
     ],
 
     'pay'           => [
-        //'class'   => App\Rpc\Client\Client::class,
-        'class'   => ServiceClient::class,
+        'class'   => App\Rpc\Client\Client::class,
+        //'class'   => ServiceClient::class,
         'host'    => '127.0.0.1',
         'serviceName'=>'pay',
         'port'    => 9508,
