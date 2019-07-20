@@ -11,7 +11,7 @@ namespace App\Components\Consul;
 class ConsulProvider
 {
     public  function  registerServer(){
-        var_dump(bean('config'));
+        var_dump('888888');
     }
 
 }
