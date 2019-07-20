@@ -12,7 +12,7 @@ use Swoft\Rpc\Client\Contract\ProviderInterface;
 
 class Client extends \Swoft\Rpc\Client\Client
 {
-    protected  $serviceName; //服务名称
+    //protected  $serviceName; //服务名称
     public function getProvider(): ?ProviderInterface
     {
 
@@ -20,10 +20,11 @@ class Client extends \Swoft\Rpc\Client\Client
         //$config = bean('config')->get('provider.consul');
         //bean('consulProvider')->registerServer($config);
         //不能区分当前调用的服务是哪个
-         return $this->provider=new Provider($this->getServiceName());
+         //return $this->provider=new Provider($this->getServiceName());
+         return $this->provider=new Provider();
     }
 
-    public  function  getServiceName(){
+    /*public  function  getServiceName(){
         return $this->serviceName;
-    }
+    }*/
 }

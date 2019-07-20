@@ -14,11 +14,11 @@ use Swoft\Rpc\Client\Client;
 
 class Provider implements ProviderInterface
 {
-    protected  $serviceName;
+    /*protected  $serviceName;
      public function __construct($serviceName)
      {
          $this->serviceName=$serviceName;
-     }
+     }*/
 
     public  function  getList(Client $client): array
      {
