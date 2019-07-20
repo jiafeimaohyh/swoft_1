@@ -137,5 +137,8 @@ return [
     ],
     'cliRouter'      => [
         // 'disabledGroups' => ['demo', 'test'],
+    ],
+    'consulProvider'=>[
+        'class'=>\App\Components\Consul\ConsulProvider::class
     ]
 ];
