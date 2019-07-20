@@ -42,7 +42,7 @@ class RpcController
      */
     private $payService;
 
-    
+
     /**
      * @RequestMapping("getList")
      *
@@ -53,8 +53,8 @@ class RpcController
         $result  = $this->userService->getList(12, 'type');
         $result2 = $this->userService2->getList(12, 'type');
 
-        $result3 = $this->payService->pay();
-        return [$result3,$result,$result2];
+        /*$result3 = $this->payService->pay();*/
+        return [$result,$result2];
     }
 
     /**

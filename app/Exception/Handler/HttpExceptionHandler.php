@@ -30,7 +30,7 @@ class HttpExceptionHandler extends AbstractHttpErrorHandler
      */
     public function handle(Throwable $e, Response $response): Response
     {
-        var_dump($e->getMessage());
+        //var_dump($e->getMessage());
         // Log
         CLog::error($e->getMessage());
 
