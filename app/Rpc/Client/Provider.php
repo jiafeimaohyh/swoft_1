@@ -14,16 +14,16 @@ use Swoft\Rpc\Client\Client;
 
 class Provider implements ProviderInterface
 {
-    /*protected  $serviceName;
-     public function __construct($serviceName)
+    protected  $serviceName;
+    public function __construct($serviceName)
      {
          $this->serviceName=$serviceName;
-     }*/
+     }
 
     public  function  getList(Client $client): array
      {
 
-          //var_dump($this->serviceName);
+          var_dump($this->serviceName);
           //  bean('consulProvider')->getServerList($this->serviceName);
           //负载均衡，缓存地址
           //根据服务名称consul当中获取动态地址

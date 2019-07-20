@@ -15,13 +15,13 @@ class Client extends \Swoft\Rpc\Client\Client
     protected  $serviceName; //服务名称
     public function getProvider(): ?ProviderInterface
     {
-        var_dump($this->getServiceName());
+        //var_dump($this->getServiceName());
         //切换成curl发生在服务启动之前
         //$config = bean('config')->get('provider.consul');
         //bean('consulProvider')->registerServer($config);
         //不能区分当前调用的服务是哪个
-         //return $this->provider=new Provider($this->getServiceName());
-         return $this->provider=new Provider();
+         return $this->provider=new Provider($this->getServiceName());
+         //return $this->provider=new Provider();
     }
 
     public  function  getServiceName(){
