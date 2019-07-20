@@ -80,7 +80,7 @@ return [
         'database' => 0,
     ],
     'user'           => [
-        'class'   => ServiceClient::class,
+        'class'   => App\Rpc\Client\Client::class,
         'host'    => '127.0.0.1',
         'port'    => 9508,
         'setting' => [
