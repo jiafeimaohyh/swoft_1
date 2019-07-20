@@ -6,7 +6,7 @@ namespace App\Rpc\Lib;
 /**
  * Class UserInterface
  *
- * @since 2.0
+ * @since 1.0
  */
 interface PayInterface
 {
