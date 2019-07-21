@@ -32,9 +32,10 @@ class RegisterService implements EventHandlerInterface
      */
     public function handle(EventInterface $event): void
     {
-        var_dump(bean('config')->get('provider.consul'));
-        var_dump(bean('consulProvider')->registerServer());
-        var_dump("注册服务");
+        sgo(function (){
+            $config = bean('config')->get('provider.consul');
+            bean('consulProvider')->registerServer($config);
+        });
 
     }
 }

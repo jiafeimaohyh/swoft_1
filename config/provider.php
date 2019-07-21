@@ -8,10 +8,10 @@ return [
             'ID'                =>'pay',
             'Name'              =>'pay-php',
             'Tags'              =>['primary'],
-            'Address'           =>'118.24.109.254',
+            'Address'           =>'47.106.113.190',
             'Port'              =>9503,
             'Check'             => [
-                'tcp'      => '118.24.109.254:9503',
+                'tcp'      => '47.106.113.190:9503',
                 'interval' => '5s',
                 'timeout'  => '2s',
             ]
