@@ -103,7 +103,7 @@ return [
         'class'   => App\Rpc\Client\Client::class,
         //'class'   => ServiceClient::class,
         'host'    => '127.0.0.1',
-        'serviceName'=>'pay',
+        'serviceName'=>'pay-php',
         'port'    => 9508,
         'setting' => [
             'timeout'         => 0.5,

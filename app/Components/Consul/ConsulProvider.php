@@ -12,19 +12,20 @@ namespace App\Components\Consul;
 class ConsulProvider
 {
     //http://118.24.109.254:8500/v1/agent/services  展示所有的服务
-    //http://118.24.109.254:8500/v1/catalog/service/pay-php 某个服务多个服务地址
-    //http://118.24.109.254:8500/v1/health/service/pay-php   某个服务多个服务地址并且查看健康的服务
+    //http://118.24.109.254:8500/v1/catalog/service/pay-php  某个服务的多个服务地址
+    //http://118.24.109.254:8500/v1/health/service/pay-php   某个服务的多个服务地址并且查看健康的状态
 
-    const REGISTER_PATH='/v1/agent/service/register';
+
+    const REGISTER_PATH = '/v1/agent/service/register'; //服务注册路径
+    const HEALTH_PATH = '/v1/health/service/'; //获取健康服务
     public  function  registerServer($config){
-        echo 'http://'.$config['address'].':'.$config['port'].self::REGISTER_PATH,json_encode($config['register']);
-        $this->curl_request('http://' . $config['address'] . ':' . $config['port'] . self::REGISTER_PATH, "PUT", json_encode($config['register']));
-            output()->writeln("<success>Rpc service Register success by consul tcp=" . $config['address'] . ":" . $config['port'] . "</success>");
+        //echo 'http://'.$config['address'].':'.$config['port'].self::REGISTER_PATH,json_encode($config['register']);
         //注册地址底层错误无法使用
-       /* \Swlib\SaberGM::put('http://'.$config['address'].':'.$config['port'].self::REGISTER_PATH,json_encode($config['register']));*/
-        //var_dump();
-
-
+        if (env('AUTOLOAD_REGISTER')) {
+            //var_dump(json_encode($config['register']));
+            $this->curl_request('http://' . $config['address'] . ':' . $config['port'] . self::REGISTER_PATH, "PUT", json_encode($config['register']));
+            output()->writeln("<success>Rpc service Register success by consul tcp=" . $config['address'] . ":" . $config['port'] . "</success>");
+        }
     }
 
     public  function  getServerList(){

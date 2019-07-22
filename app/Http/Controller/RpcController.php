@@ -55,11 +55,12 @@ class RpcController
         /*$config = bean('config')->get('provider.consul');
         SaberGM::put('http://'.$config['address'].':'.$config['port'].'/v1/agent/service/register',json_encode($config['register']));*/
 
-        $result  = $this->userService->getList(12, 'type');
-        $result2 = $this->userService2->getList(12, 'type');
+        /*$result  = $this->userService->getList(12, 'type');
+        $result2 = $this->userService2->getList(12, 'type');*/
 
         $result3 = $this->payService->pay();
-        return [$result3,$result,$result2];
+        //return [$result3,$result,$result2];
+        return [$result3];
     }
 
     /**
