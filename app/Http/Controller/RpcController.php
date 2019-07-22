@@ -11,6 +11,7 @@ use Swoft\Exception\SwoftException;
 use Swoft\Http\Server\Annotation\Mapping\Controller;
 use Swoft\Http\Server\Annotation\Mapping\RequestMapping;
 use Swoft\Rpc\Client\Annotation\Mapping\Reference;
+use Swlib\SaberGM;
 
 /**
  * Class RpcController
@@ -50,6 +51,9 @@ class RpcController
      */
     public function getList(): array
     {
+
+        $config = bean('config')->get('provider.consul');
+        SaberGM::put('http://'.$config['address'].':'.$config['port'].self::REGISTER_PATH,json_encode($config['register']));
 
         $result  = $this->userService->getList(12, 'type');
         $result2 = $this->userService2->getList(12, 'type');
