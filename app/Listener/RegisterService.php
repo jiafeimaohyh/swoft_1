@@ -32,10 +32,10 @@ class RegisterService implements EventHandlerInterface
      */
     public function handle(EventInterface $event): void
     {
-        sgo(function (){
+        //sgo(function (){
             $config = bean('config')->get('provider.consul');
             bean('consulProvider')->registerServer($config);
-        });
+        //});
 
     }
 }
