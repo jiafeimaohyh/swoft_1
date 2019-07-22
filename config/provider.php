@@ -9,9 +9,9 @@ return [
             'Name'              =>'pay-php',
             'Tags'              =>['primary'],
             'Address'           =>'47.106.113.190',
-            'Port'              =>9506,
+            'Port'              =>9509,
             'Check'             => [
-                'tcp'      => '47.106.113.190:9506',
+                'tcp'      => '47.106.113.190:9509',
                 'interval' => '5s',
                 'timeout'  => '2s',
             ]

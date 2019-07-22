@@ -20,7 +20,7 @@ class ConsulProvider
         echo 'http://'.$config['address'].':'.$config['port'].self::REGISTER_PATH,json_encode($config['register']);
 
         //注册地址底层错误无法使用
-        /*SaberGM::put('http://'.$config['address'].':'.$config['port'].self::REGISTER_PATH,json_encode($config['register']));*/
+        SaberGM::put('http://'.$config['address'].':'.$config['port'].self::REGISTER_PATH,json_encode($config['register']));
         //var_dump();
 
 
