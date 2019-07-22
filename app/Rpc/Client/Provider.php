@@ -11,6 +11,7 @@ namespace App\Rpc\Client;
 
 use Swoft\Rpc\Client\Contract\ProviderInterface;
 use Swoft\Rpc\Client\Client;
+use Swlib\SaberGM;
 
 class Provider implements ProviderInterface
 {
@@ -22,6 +23,7 @@ class Provider implements ProviderInterface
 
     public  function  getList(Client $client): array
     {
+      SaberGM::put('http://'.$config['address'].':'.$config['port'].self::REGISTER_PATH,json_encode($config['register']));
 
         /*var_dump($this->serviceName);*/
         //  bean('consulProvider')->getServerList($this->serviceName);
