@@ -26,6 +26,8 @@ class Provider implements ProviderInterface
 
         $config = bean('config')->get('provider.consul');
         $address = bean('consulProvider')->getServerList($this->serviceName, $config);
+        print_r($address);
+        
         //  bean('consulProvider')->getServerList($this->serviceName);
         //负载均衡，缓存地址
         //根据服务名称consul当中获取动态地址
