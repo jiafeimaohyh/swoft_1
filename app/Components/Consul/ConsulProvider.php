@@ -18,7 +18,9 @@ class ConsulProvider
 
     const REGISTER_PATH = '/v1/agent/service/register'; //服务注册路径
     const HEALTH_PATH = '/v1/health/service/'; //获取健康服务
-    public  function  registerServer($config){
+
+    public  function  registerServer($config)
+    {
         //echo 'http://'.$config['address'].':'.$config['port'].self::REGISTER_PATH,json_encode($config['register']);
         //注册地址底层错误无法使用
         if (env('AUTOLOAD_REGISTER')) {
@@ -27,10 +29,34 @@ class ConsulProvider
             output()->writeln("<success>Rpc service Register success by consul tcp=" . $config['address'] . ":" . $config['port'] . "</success>");
         }
     }
+    /**
+     * 获取某个服务的列表
+     */
+    public  function  getServerList($serviceName, $config){
+        $query=[
+            'dc'=>$config['discovery']['dc']
+        ];
+        if(!empty($config['discovery']['tag'])){
+            $query['tag']=$config['discovery']['tag'];
+        }
+        $queryStr=http_build_query($query);
+        //排除不健康的服务,获取健康服务
+        $url = 'http://' . $config['address'] . ':' . $config['port'] . self::HEALTH_PATH . $serviceName.'?'.$queryStr;
+        //负载机制
+        $serviceList = $this->curl_request($url, 'GET');
 
-    public  function  getServerList(){
-        //排除不健康的服务
-
+        $serviceList=json_decode($serviceList, true);
+        $address=[];
+        foreach ($serviceList as $k=>$v){
+            //判断当前的服务是否是活跃的,并且是当前想要去查询服务
+            foreach ($v['Checks'] as $c){
+                if($c['ServiceName']==$serviceName && $c['Status']=="passing"){
+                    $address[$k]['address']=$v['Service']['Address'].":".$v['Service']['Port'];
+                    $address[$k]['weight']=$v['Service']['Weights']['Passing'];
+                }
+            }
+        }
+        return $address;
     }
 
     public function curl_request($url, $method = 'POST', $data = [])

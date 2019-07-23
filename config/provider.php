@@ -17,9 +17,8 @@ return [
             ]
         ],
         'discovery' => [
-            'name' => 'user',
-            'dc' => 'dc',
-            'passing' => true
+            'dc' => 'dc1',
+            'tag'=>'primary'
         ]
     ],
 ];
