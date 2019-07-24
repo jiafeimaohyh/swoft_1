@@ -31,6 +31,6 @@ class Provider implements ProviderInterface
         $address = RandLoadBalance::select(array_values($address));
         var_dump($address);
         //根据服务名称consul当中获取动态地址
-        return [$address];
+        return [$address['address']];
     }
 }
