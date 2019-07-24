@@ -11,7 +11,7 @@ namespace App\Rpc\Client;
 
 use Swoft\Rpc\Client\Contract\ProviderInterface;
 use Swoft\Rpc\Client\Client;
-
+use App\Components\LoadBalance\RandLoadBalance;
 
 class Provider implements ProviderInterface
 {
