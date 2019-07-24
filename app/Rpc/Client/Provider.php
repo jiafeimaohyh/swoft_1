@@ -27,7 +27,9 @@ class Provider implements ProviderInterface
         $config = bean('config')->get('provider.consul');
         $address = bean('consulProvider')->getServerList($this->serviceName, $config);
         //负载均衡(加权随机)
-        $address = RandLoadBalance::select(array_values($address))['address'];
+        //$address = RandLoadBalance::select(array_values($address))['address'];
+        $address = RandLoadBalance::select(array_values($address));
+        var_dump($address);
         //根据服务名称consul当中获取动态地址
         return [$address];
     }
